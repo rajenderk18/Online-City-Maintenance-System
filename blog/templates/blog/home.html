@@ -85,22 +85,22 @@
                 </div>
             </article>
             {%  if user_profile is None %}
-<!--            <article class="media content-section">-->
-<!--                <div class="row pl-2">-->
-<!--                    <div class="col-12">-->
-<!--                        Top users by posts-->
-<!--                    </div>-->
-<!--                    <ul class="col-12 mt-2">-->
-<!--                        {% for user in all_users %}-->
-<!--                            <li>-->
-<!--                                <a href="{% url 'user-posts' user.username %}">-->
-<!--                                    {{ user.username }}-->
-<!--                                </a>-->
-<!--                            </li>-->
-<!--                        {% endfor %}-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--            </article>-->
+            <article class="media content-section">
+                <div class="row pl-2">
+                    <div class="col-12">
+                        See other people's posted Issues
+                    </div>
+                    <ul class="col-12 mt-2">
+                        {% for user in all_users %}
+                            <li>
+                                <a href="{% url 'user-posts' user.username %}">
+                                    {{ user.username }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </article>
             {% endif %}
             <div class="d-flex">
                 {% if user_profile is None %}

@@ -26,7 +26,7 @@ SECRET_KEY = '*n*f0zqlu+cgn&m*sd3^qkz9b=nw6db(tfo$156o9ag-%2f_eq'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'fiffeek.pythonanywhere.com',
+    'citymaintenance.pythonanywhere.com',
     '127.0.0.1'
 ]
 
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'citydb',
         'USER': 'postgres',
-        'PASSWORD': 'komal123@',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '5432',
 

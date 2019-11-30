@@ -24,7 +24,7 @@ class Catogery(models.Model):
         ordering = ["name"]
 
 class Status(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, default='Received')
 
     def __str__(self):
         return self.name
@@ -54,7 +54,7 @@ class Post(models.Model):
     zipcode = models.PositiveIntegerField(blank=True, null=True)
     image = models.ImageField(upload_to='issuePics', default='default.jpg', blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
-    status = models.ForeignKey(Status, default='', related_name="post", null=True, blank=True, on_delete=models.CASCADE)
+    status = models.ForeignKey(Status, default='1', related_name="post", null=True, blank=True, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     number_plate = models.CharField(max_length=50, default='', blank=True)

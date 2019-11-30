@@ -14,7 +14,7 @@ html {
 
 body {
   position: relative;
-  background: #138535;
+  background: #101566;
   color: var(--muted-color);
   margin-top: 5rem;
   padding-top: 56px;
@@ -46,7 +46,7 @@ ul {
 }
 
 .bg-steel {
-  background-color: #6BD089;
+  background-color: #8389E0;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -62,7 +62,7 @@ ul {
 }
 
 .content-section {
-  background: #6BD089;
+  background: #8389E0;
   padding: 10px 10px;
   margin-bottom: 20px;
 }
@@ -131,7 +131,7 @@ article {
 
 .btn:active, .btn-outline-primary:hover {
     color: #00FBD7 !important;
-    background-color: #6BD089 !important;
+    background-color: #8389E0 !important;
     border-color: #00FBD7 !important;
 }
 
@@ -140,7 +140,7 @@ article {
 }
 
 .form-control {
-    background-color: #6BD089 !important;
+    background-color: #8389E0 !important;
     color: var(--muted-color) !important;
     box-shadow: 0 0 0 0 !important;
 }
@@ -153,7 +153,7 @@ textarea:focus, input:focus {
 
 .alert-success {
     color: #00FBD7;
-    background-color: #6BD089;
+    background-color: #8389E0;
     border-color: #00FBD7;
 }
 
@@ -163,7 +163,7 @@ textarea:focus, input:focus {
 
 .btn-info {
     color: white;
-    background-color: #6BD089;
+    background-color: #8389E0;
     border-color: white;
 }
 
@@ -174,13 +174,13 @@ textarea:focus, input:focus {
 
 .btn-outline-secondary:hover {
     color: #00FBD7 !important;
-    background-color: #6BD089 !important;
+    background-color: #8389E0 !important;
     border-color: #00FBD7 !important;
 }
 
 .alert-danger {
     color: #ff00f0 !important;
-    background-color: #6BD089 !important;
+    background-color: #8389E0 !important;
     border-color: #ff00f0 !important;
 }
 
@@ -204,13 +204,13 @@ ul {
 .hovered-tweet:hover {
     -webkit-transition: background-color ease-in-out .2s;
     -webkit-transition: border ease-in-out .2s;
-    background-color: #085820 !important;
+    background-color: #101566 !important;
     border: 1px solid rgba(255, 255, 255, 1);
 }
 
 input[type="file"]::-webkit-file-upload-button {
     color: white !important;
-    background-color: #085820 !important;
+    background-color: #101566 !important;
     border-radius: 4px;
     border: 1px solid white;
 }
@@ -224,19 +224,6 @@ input[type="file"]::-webkit-file-upload-button {
    position:relative;
 }
 
-.site-footer
-{
-  background-color:#6BD089;
-  text-align: center;
-  padding:20px 0 20px;
-  font-size:15px;
-  line-height:24px;
-  color:#737373;
-  position:fixed;
-  bottom: 0;
-  height:60px;
-  left: 0;
-  width: 100%;
-}
+
 
 
