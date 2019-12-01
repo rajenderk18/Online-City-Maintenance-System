@@ -52,7 +52,7 @@ class Post(models.Model):
     city = models.CharField(max_length=50, default='MIAMI', blank=True)
     state = models.CharField(max_length=50, default='FL', blank=True)
     zipcode = models.PositiveIntegerField(blank=True, null=True)
-    image = models.ImageField(upload_to='issuePics', default='default.jpg', blank=True)
+    image = models.ImageField(upload_to='issuePics', default='default1.jpg', blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
     status = models.ForeignKey(Status, default='1', related_name="post", null=True, blank=True, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)

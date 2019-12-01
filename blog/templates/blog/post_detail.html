@@ -38,6 +38,42 @@
                     {{ post.content }}
                 </p>
 
+                <div class="row">
+                            <div class="col-6">
+                                {% if post.image %}
+                                <p class="mb-4">
+                                    <a class="mr-2 white-important" href="{% url 'post-detail' post.id %}">
+                                        <img class="img-responsive img-thumbnail mr-3" style="width: 200px; height: 150px;" src="{{ post.image.url }}" />
+                                    </a>
+                                </p>
+                                {% endif %}
+                            </div>
+                            <div class="col-6">
+                                <small
+                                        style="opacity: 1;"
+                                    class="white-important d-flex full-width flex-row-reverse">
+                                    <strong>Address: {{ post.street }} <br>{{ post.city }}, {{ post.state }}, {{ post.zipcode }}</strong>
+                                </small>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <small style="opacity: 1; text-transform: uppercase;" class="white-important ">
+                                    <strong>Category: {{ post.catogery }}</strong>
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <small
+                                        style="opacity: 1; text-transform: uppercase;"
+                                    class="white-important d-flex full-width flex-row-reverse">
+                                    <strong>Status: {{ post.status }}</strong>
+                                </small>
+                            </div>
+                        </div>
+
+
                 <small
                     class="white-important d-flex full-width flex-row-reverse">
                     {{ post.date_posted | date:"H:i l, d.m.y" }}
