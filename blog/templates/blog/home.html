@@ -43,12 +43,21 @@
                     </div>
                 {%  endif %}
             </article>
+
+            {%  if user_profile is None %}
+            <article class="media content-section">
+                <div class="row pl-2">
+                    <a class="btn btn-link btn-lg white-important" href="{% url 'user-posts' user.username %}">CHECK STATUS OF MY REQUEST</a>
+                </div>
+            </article>
+            {% endif %}
+
             <article class="media content-section">
                 <div class="row full-width pl-2">
-                    <div class="col-6">
+                    <div class="col-6 white-important">
                             Reported Issues
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 white-important">
                             Completed Issues
                     </div>
                     {%  if user_profile != None %}
@@ -88,8 +97,8 @@
             {%  if user_profile is None %}
             <article class="media content-section">
                 <div class="row pl-2">
-                    <div class="col-12">
-                        See other people's posted Issues
+                    <div class="col-12 white-important">
+                        See Other People's Posted Issues
                     </div>
                     <ul class="col-12 mt-2">
                         {% for user in all_users %}
@@ -104,24 +113,24 @@
             </article>
             {% endif %}
 
-            {%  if user_profile is None %}
-            <article class="media content-section">
-                <div class="row pl-2">
-                    <div class="col-12">
-                        See Issues By Status
-                    </div>
-                    <ul class="col-12 mt-2">
-                        {% for i in statuss %}
-                            <li>
-                                <a href="{% url 'user-posts' user.username %}">
-                                    {{ i.name }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </article>
-            {% endif %}
+<!--            {%  if user_profile is None %}-->
+<!--            <article class="media content-section">-->
+<!--                <div class="row pl-2">-->
+<!--                    <div class="col-12">-->
+<!--                        See Issues By Status-->
+<!--                    </div>-->
+<!--                    <ul class="col-12 mt-2">-->
+<!--                        {% for i in statuss %}-->
+<!--                            <li>-->
+<!--                                <a href="{% url 'user-posts' user.username %}">-->
+<!--                                    {{ i.name }}-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        {% endfor %}-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </article>-->
+<!--            {% endif %}-->
 
             <div class="d-flex">
                 {% if user_profile is None %}
@@ -197,7 +206,7 @@
                     <a
                             style="color: rgba(255, 255, 255, 0.5) !important;"
                             href="{% url 'post-detail' post.id %}">
-                        <p class="mb-4">
+                        <p class="mb-4 white-important">
                             {{ post.content }}
                         </p>
 
@@ -239,8 +248,8 @@
 
 
                         <div class="row">
-                            <div class="col-6">
-                                <small style="opacity: 0.4;">
+                            <div class="col-6 white-important">
+                                <small style="opacity: 1;">
                                     {% if post.number_of_comments > 1 %}
                                     {{ post.number_of_comments }} comments
                                     {% else %}
@@ -250,8 +259,8 @@
                             </div>
                             <div class="col-6">
                                 <small
-                                        style="opacity: 0.4;"
-                                    class="white-important d-flex full-width flex-row-reverse">
+                                        style="opacity: 1;"
+                                    class="d-flex full-width flex-row-reverse white-important">
                                     {{ post.date_posted | date:"H:i l, d.m.y" }}
                                 </small>
                             </div>

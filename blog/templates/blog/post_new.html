@@ -11,7 +11,7 @@
 <!--        </fieldset>-->
 
 
-    <div class="form-row">
+    <div class="form-row white-important">
       <div class="form-group col-md-12 mb-0">
         {{ form.catogery|as_crispy_field }}
       </div>
@@ -19,7 +19,7 @@
     <hr>
 
     {% if form.catogery ==  "1" %}
-    <div class="form-row">
+    <div class="form-row white-important">
       <div class="form-group col-md-6 mb-0">
         {{ form.number_plate|as_crispy_field }}
       </div>
@@ -37,14 +37,14 @@
     {% else %}
     {% endif %}
 
-    <div class="form-row">
+    <div class="form-row white-important">
         <div class="form-group col-md-12 mb-0 ">
         {{ form.content|as_crispy_field }}
         </div>
     </div>
     <hr>
 
-    <div class="form-row">
+    <div class="form-row white-important">
       <div class="form-group col-md-6 mb-0">
         {{ form.street|as_crispy_field }}
       </div>
@@ -68,12 +68,101 @@
     </div>
     <hr>
 
-    <div class="form-row">
+    <div class="form-row white-important">
         <div class="form-group col-md-12 mb-0 ">
         {{ form.image|as_crispy_field }}
         </div>
     </div>
     <hr>
+
+
+
+
+
+
+
+<!--         <div class="row">-->
+<!--    <div class="col-6">-->
+<!--      <label for="otherField1">Street Address</label>-->
+<!--&lt;!&ndash;      <input type="text" class="form-control w-100" id="otherField1" >&ndash;&gt;-->
+<!--      <input type="text" class="form-control w-100" id="autocomplete" >-->
+<!--    </div>-->
+<!--    <div class="col-2">-->
+<!--      <label for="otherField2">City</label>-->
+<!--      <input type="text" class="form-control w-100" id="locality">-->
+<!--    </div>-->
+<!--    <div class="col-2">-->
+<!--      <label for="otherField2">State</label>-->
+<!--      <input type="text" class="form-control w-100" id="administrative_area_level_1">-->
+<!--    </div>-->
+<!--    <div class="col-2">-->
+<!--      <label for="otherField2">Zip Code</label>-->
+<!--      <input type="text" class="form-control w-100" id="postal_code">-->
+<!--    </div>-->
+<!-- </div>-->
+
+
+
+<!--        <div id="map" style="width: 100%; height: 600px; border:0.5"></div>-->
+
+<!--    <hr>-->
+<!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxEBXXZRjgKUczgQfr7LMGxWFZtgxZ5LQ&callback=initMap"-->
+<!--    async defer></script>-->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+<!--    <script>-->
+<!--      var map;-->
+<!--      var marker;-->
+<!--      var latitudeTextBox = $("#LatitudeTextBox").val();-->
+<!--      var longitudeTextBox = $("#LongitudeTextBox").val();-->
+
+<!--      function initMap() {-->
+
+<!--         var myLatLng = new google.maps.LatLng(25.7570684, -80.3658604);-->
+
+<!--        var mapOptions = {-->
+<!--            zoom: 10,-->
+<!--            center: myLatLng,-->
+<!--            scrollwheel: false,-->
+<!--            mapTypeId: google.maps.MapTypeId.ROADMAP,-->
+<!--            mapTypeControl: true,-->
+<!--            mapTypeControlOptions: { style: google.maps.MapTypeControlStyle.DEFAULT },-->
+<!--            navigationControl: true,-->
+<!--            navigationControlOptions: { style: google.maps.NavigationControlStyle.DEFAULT }-->
+<!--        };-->
+
+
+<!--        var map = new google.maps.Map(document.getElementById('map'), mapOptions);-->
+
+<!--        var marker = new google.maps.Marker({-->
+<!--            draggable: true,-->
+<!--            map: map,-->
+<!--            position: myLatLng,-->
+<!--            title:"Set Address!"-->
+<!--        });-->
+
+<!--        google.maps.event.addListener(marker, 'dragend', function() {-->
+<!--            var curLatLng = marker.getPosition();-->
+<!--            latitudeTextBox=curLatLng.lat();-->
+<!--            longitudeTextBox=curLatLng.lng();-->
+<!--        });-->
+
+<!--        google.maps.event.trigger(marker, "click");-->
+
+<!--        }-->
+
+<!--    //google.maps.event.addDomListener(window, 'load', initMap);-->
+
+<!--    </script>-->
+
+
+
+
+
+
+
+
+
+
 
   <div class="form-group">
      <button class="btn btn-outline-primary" type="submit">Submit changes</button>

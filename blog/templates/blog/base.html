@@ -19,20 +19,20 @@
         <div class="container">
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto pl-2">
-              <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+              <a class="nav-item nav-link" href="{% url 'blog-home' %}"><strong class="white-important">Home</strong></a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav pr-2">
                 {% if user.is_authenticated %}
-                    <a class="nav-item nav-link" href="{% url 'selectproblem' %}">Report a Problem</a>
+                    <a class="nav-item nav-link" href="{% url 'selectproblem' %}"><strong class="white-important">Report an Issue</strong></a>
 <!--                    <a class="nav-item nav-link" href="{% url 'post-create' %}">Add an Issue</a>-->
-                    <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-                <a class="nav-item nav-link" href="{% url 'about' %}">About Us</a>
+                    <a class="nav-item nav-link" href="{% url 'logout' %}"><strong class="white-important">Logout</strong></a>
+                <a class="nav-item nav-link" href="{% url 'about' %}"><strong class="white-important">About Us</strong></a>
                 {% else %}
-                    <a class="nav-item nav-link" href="{% url 'selectproblem' %}">Report a Problem</a>
-                    <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                    <a class="nav-item nav-link" href="{% url 'register-users' %}">Register</a>
-                <a class="nav-item nav-link" href="{% url 'about' %}">About Us</a>
+                    <a class="nav-item nav-link" href="{% url 'selectproblem' %}"><strong class="white-important">Report an Issue</strong></a>
+                    <a class="nav-item nav-link" href="{% url 'login' %}"><strong class="white-important">Login</strong></a>
+                    <a class="nav-item nav-link" href="{% url 'register-users' %}"><strong class="white-important">Register</strong></a>
+                <a class="nav-item nav-link" href="{% url 'about' %}"><strong class="white-important">About Us</strong></a>
                 {% endif %}
             </div>
           </div>

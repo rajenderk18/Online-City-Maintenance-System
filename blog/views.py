@@ -7,7 +7,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Count
 from .forms import NewCommentForm
-
+import googlemaps
 
 def is_users(post_user, logged_user):
     return post_user == logged_user
@@ -142,6 +142,24 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         data = super().get_context_data(**kwargs)
         data['tag_line'] = 'Report A New Issue'
         return data
+
+    # def geocoding(self):
+    #     gmaps = googlemaps.Client(key='AIzaSyCxEBXXZRjgKUczgQfr7LMGxWFZtgxZ5LQ')
+    #
+    #     # Geocoding an address
+    #     geocode_result = gmaps.geocode('1261 SW 104th Passage, Miami, Florida 33174')
+    #     print(geocode_result[0]['geometry']['location']['lat'])
+    #     print(geocode_result[0]['geometry']['location']['lng'])
+    #
+    #     # Look up an address with reverse geocoding
+    #     reverse_geocode_result = gmaps.reverse_geocode((25.7570684, -80.3658604))
+    #     print(reverse_geocode_result[0]['address_components'][0]['long_name'] + ' ' +
+    #           reverse_geocode_result[0]['address_components'][1]['long_name'] + ' ' +
+    #           reverse_geocode_result[0]['address_components'][3]['long_name'])  # Street
+    #     print(reverse_geocode_result[0]['address_components'][2]['long_name'])  # city
+    #     print(reverse_geocode_result[0]['address_components'][4]['long_name'])  # State
+    #     # print(reverse_geocode_result[0]['address_components'][5]['long_name']) #Country
+    #     print(reverse_geocode_result[0]['address_components'][6]['long_name'])  # zipcode
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):

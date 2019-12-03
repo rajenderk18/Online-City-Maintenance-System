@@ -49,7 +49,7 @@ class Status(models.Model):
 class Post(models.Model):
    # catogery = models.CharField(max_length=6, choices=COLOR_CHOICES, default='green')
     catogery = models.ForeignKey(Catogery, related_name="post", null=True, blank=True, on_delete=models.CASCADE)
-    content = models.TextField(max_length=150)
+    content = models.TextField(max_length=2000)
     street = models.CharField(max_length=100, default='', blank=True, null=True)
     city = models.CharField(max_length=50, default='MIAMI', blank=True)
     state = models.CharField(max_length=50, default='FL', blank=True)
@@ -58,6 +58,8 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     status = models.ForeignKey(Status, default='1', related_name="post", null=True, blank=True, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    latitude = models.DecimalField(max_digits=12, decimal_places=7, default='25.7570684', blank=True)
+    longitude = models.DecimalField(max_digits=12, decimal_places=7, default='-80.3658604', blank=True)
 
     number_plate = models.CharField(max_length=50, default='', blank=True)
     make = models.CharField(max_length=50, default='', blank=True)
