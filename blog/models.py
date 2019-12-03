@@ -3,6 +3,8 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 
+
+
 class Catogery(models.Model):
     name = models.CharField(max_length=255, unique=True)
     # slug = models.SlugField(allow_unicode=True, unique=True)

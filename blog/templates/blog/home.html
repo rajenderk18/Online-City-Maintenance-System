@@ -32,7 +32,8 @@
                         <div>
                             <h4 style="text-align: left"
                                     class="white-important">
-                                {{ user.username }}
+                                <a href="{% url 'user-posts' user.username %}">
+                                    {{ user.username }}</a>
                             </h4>
                             <div style="text-align: left"
                                     class="white-important">
@@ -53,13 +54,13 @@
                     {%  if user_profile != None %}
                         <div class="col-6">
                             <h3 class="white-important follow-click">
-                                <a href="{% url 'user-followers' user_profile.username %}">
+                               <a href="{% url 'user-posts' user.username %}">
                                     {{ user_profile.profile.number_of_issues }}
                                 </a>
                             </h3>
                         </div>
                          <div class="col-6">
-                            <a href="{% url 'user-follows' user_profile.username %}">
+                            <a href="{% url 'user-posts' user.username %}">
                                 <h3 class="white-important follow-click">
                                     {{ user_profile.profile.following }}
                                 </h3>
@@ -102,10 +103,30 @@
                 </div>
             </article>
             {% endif %}
+
+            {%  if user_profile is None %}
+            <article class="media content-section">
+                <div class="row pl-2">
+                    <div class="col-12">
+                        See Issues By Status
+                    </div>
+                    <ul class="col-12 mt-2">
+                        {% for i in statuss %}
+                            <li>
+                                <a href="{% url 'user-posts' user.username %}">
+                                    {{ i.name }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </article>
+            {% endif %}
+
             <div class="d-flex">
                 {% if user_profile is None %}
                     <a class="btn btn-sm btn-outline-primary mb-4 mr-3" href="{% url 'profile' %}">
-                        SETTINGS
+                        Edit Profile
                     </a>
                 {% endif %}
                 {%  if user_profile is not None and user_profile.id != user.id  and user.username != '' %}

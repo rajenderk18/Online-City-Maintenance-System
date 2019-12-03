@@ -43,13 +43,13 @@ class PostListView(LoginRequiredMixin, ListView):
         print(all_users, file=sys.stderr)
         return data
 
-    def get_queryset(self):
-        user = self.request.user
-        qs = Follow.objects.filter(user=user)
-        follows = [user]
-        for obj in qs:
-            follows.append(obj.follow_user)
-        return Post.objects.filter(author__in=follows).order_by('-date_posted')
+    # def get_queryset(self):
+    #     user = self.request.user
+    #     qs = Follow.objects.filter(user=user)
+    #     follows = [user]
+    #     for obj in qs:
+    #         follows.append(obj.follow_user)
+    #     return Post.objects.filter(author__in=follows).order_by('-date_posted')
 
 
 class UserPostListView(LoginRequiredMixin, ListView):
@@ -198,3 +198,33 @@ class FollowersListView(ListView):
         data['follow'] = 'followers'
         return data
 
+
+# class StatusPostListView(LoginRequiredMixin, ListView):
+#     model = Post
+#     template_name = 'blog/home.html'
+#     context_object_name = 'status'
+#     ordering = ['-date_posted']
+#     paginate_by = PAGINATION_COUNT
+#
+#     def get_context_data(self, **kwargs):
+#         data = super().get_context_data(**kwargs)
+#
+#         all_users = []
+#         data_counter = Post.objects.values('author')\
+#             .annotate(author_count=Count('author'))\
+#             .order_by('-author_count')[:5]
+#
+#         for aux in data_counter:
+#             all_users.append(User.objects.filter(pk=aux['author']).first())
+#
+#         data['all_users'] = all_users
+#         print(all_users, file=sys.stderr)
+#         return data
+#
+#     def get_queryset(self):
+#         user = self.request.user
+#         qs = Follow.objects.filter(user=user)
+#         follows = [user]
+#         for obj in qs:
+#             follows.append(obj.follow_user)
+#         return Post.objects.filter(author__in=follows).order_by('-date_posted')

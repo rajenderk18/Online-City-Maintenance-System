@@ -7,6 +7,7 @@ class PostAdmin(admin.ModelAdmin):
     list_editable = ['status']
 
 
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment)
 admin.site.register(Catogery)

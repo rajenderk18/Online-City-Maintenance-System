@@ -25,5 +25,6 @@ urlpatterns = [
     path('post/<int:pk>/del/', PostDeleteView.as_view(), name='post-delete'),
     path('user/<str:username>/follows', FollowsListView.as_view(), name='user-follows'),
     path('user/<str:username>/followers', FollowersListView.as_view(), name='user-followers'),
-    path('media/issuePics/<int:pk>/$', UserPostListView.as_view(), name='post-pics'),
+    # path('media/issuePics/<int:pk>/$', UserPostListView.as_view(), name='post-pics'),
+    path('status/<str:username>', UserPostListView.as_view(), name='status-posts'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
