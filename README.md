@@ -23,36 +23,26 @@
 
 ## Table of Contents 
 
-- [Panther_Youtube_Downloader](#pantheryoutubedownloader)
-  * [Example](#example)
-  * [Table of Contents](#table-of-contents)
-  * [Getting Started](#getting-started)
-    + [Prerequisites](#prerequisites)
-    + [Clone](#clone)
-    + [Running the Panther Youtube Downloader](#running-the-panther-youtube-downloader)
-  * [Building the Windows installer](#building-the-windows-installer)
-    + [Using pyinstaller](#using-pyinstaller)
-    + [Using CX_FREEZE](#using-cxfreeze)
-      - [Writing setup.py:](#writing-setuppy)
-      - [Creating the Package:](#creating-the-package)
-  * [Features](#features)
-  * [How it works ? (Instructions)](#how-it-works--instructions)
-  * [Usage](#usage)
-      - [Downloading the audio and video from a youtube link:](#downloading-the-audio-and-video-from-a-youtube-link)
-      - [Playing the audio directly from the "Panther Youtube Downloader":](#playing-the-audio-directly-from-the-panther-youtube-downloader)
-        * [Changing the theme of the "Panther Youtube Downloader":](#changing-the-theme-of-the-panther-youtube-downloader)
-  * [Executable](#executable)
-      - [Version: v0.1](#version-v01)
-  * [To-do](#to-do)
-  * [Documentation](#documentation)
-    + [Making the layout of the Panther Youtube Downloader](#making-the-layout-of-the-panther-youtube-downloader)
-    + [Functions used in the Panther Youtube Downloader](#functions-used-in-the-panther-youtube-downloader)
-  * [Tests](#tests)
-  * [Contributing](#contributing)
-  * [FAQ](#faq)
-  * [Support](#support)
-  * [Donations](#donations)
-  * [License](#license)
+- * [AVIYAT – A Platform for Grievance Reporting for City Maintenance](#aviyat---a-platform-for-grievance-reporting-for-city-maintenance)
+      * [Example](#example)
+      * [Table of Contents](#table-of-contents)
+      * [Getting Started](#getting-started)
+        + [Prerequisites](#prerequisites)
+        + [Clone](#clone)
+        + [Running the AVIYAT – (A Platform for Grievance Reporting for City Maintenance)](#running-the-aviyat----a-platform-for-grievance-reporting-for-city-maintenance-)
+      * [Benefits of AVIYAT (A Grievance Reporting for City Maintenance)](#benefits-of-aviyat--a-grievance-reporting-for-city-maintenance-)
+      * [ER Diagram](#er-diagram)
+      * [Class Diagram](#class-diagram)
+      * [Use-Case Diagram](#use-case-diagram)
+      * [Usage](#usage)
+          - [Working example of the home page of the website:](#working-example-of-the-home-page-of-the-website-)
+          - [Other pages of the website:](#other-pages-of-the-website-)
+      * [Live Website Link](#live-website-link)
+      * [To-do](#to-do)
+      * [Tests](#tests)
+      * [Contributing](#contributing)
+      * [Support](#support)
+      * [License](#license)
 
 ------
 
@@ -156,13 +146,33 @@ $ python manage.py createsuperuser
 
 
 
+## ER Diagram
+
+![UpdatePage in use](https://user-images.githubusercontent.com/35782113/70171014-e40caf80-169b-11ea-8c94-d2380c8a5985.png)
+
+
+
 ## Class Diagram
 
-![1575484594393](C:\Users\rkumar\AppData\Roaming\Typora\typora-user-images\1575484594393.png)
+![UpdatePage in use](https://user-images.githubusercontent.com/35782113/70171020-e66f0980-169b-11ea-8e30-17046670c2ff.png)
+
+
+
+![UpdatePage in use](https://user-images.githubusercontent.com/35782113/70171032-ebcc5400-169b-11ea-8c99-85b06f08f7e7.png)
 
 
 
 
+
+## Use-Case Diagram
+
+
+
+![UpdatePage in use](https://user-images.githubusercontent.com/35782113/70171034-ec64ea80-169b-11ea-9a88-630a529397d8.png)
+
+
+
+![UpdatePage in use](https://user-images.githubusercontent.com/35782113/70171033-ebcc5400-169b-11ea-9c2c-f0c0522dfa2f.png)
 
 ## Usage 
 
@@ -195,17 +205,11 @@ You can access the website on the following URL: http://citymaintenance.pythonan
 - [ ] Need to implement the email status reporting feature
 - [ ] need to work on auto-category select and more details about the specific catogery 
 
-## Documentation 
 
-### Making the layout of the Panther Youtube Downloader
-
-For making the layout of the Panther Youtube Downloader, I used the Tkinter widgets, "Frame" to divide the window area into different sizes. I divide the window into 4 frames:
-
-1. 
 
 ## Tests
 
-This program is successfully tested on Window 10, Mac, and Ubuntu 16.04.
+This program is successfully working as expected. You can check live version here: http://citymaintenance.pythonanywhere.com/
 
 ------
 
@@ -221,28 +225,12 @@ If interested, you can contribute by following the given step:
 
 ------
 
-## FAQ
-
-- 
-
-------
-
 ## Support
 
 Reach out to me at one of the following places!
 
 - Website at <a href="http://KumarRajender.com" target="_blank">`KumarRajender.com`</a>
 - Email me: [rajenderk18@gmail.com](mailto:rajenderk18@gmail.com)
-
-&nbsp;
-
-------
-
-## Credits
-
-- If you think this little youtube downloader is useful to you, then it's a good reason to do a donation.
-
-- 
 
 ------
 
