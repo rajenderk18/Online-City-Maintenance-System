@@ -60,13 +60,13 @@
     </div>
     <hr>
 
-    <div>
-        <iframe width="100%" height="600" frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?q=Miami, USA&amp;key=AIzaSyAdKFs0Z7AZdCPFdM27HG4U7X1AMHdFeMk">
-        </iframe>
+<!--    <div>-->
+<!--        <iframe width="100%" height="600" frameborder="0" style="border:0"-->
+<!--        src="https://www.google.com/maps/embed/v1/place?q=Miami, USA&amp;key=AIzaSyAdKFs0Z7AZdCPFdM27HG4U7X1AMHdFeMk">-->
+<!--        </iframe>-->
 
-    </div>
-    <hr>
+<!--    </div>-->
+<!--    <hr>-->
 
     <div class="form-row white-important">
         <div class="form-group col-md-12 mb-0 ">
@@ -103,56 +103,72 @@
 
 
 
-<!--        <div id="map" style="width: 100%; height: 600px; border:0.5"></div>-->
+        <div id="map" style="width: 100%; height: 600px; border:0.5"></div>
 
-<!--    <hr>-->
-<!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxEBXXZRjgKUczgQfr7LMGxWFZtgxZ5LQ&callback=initMap"-->
-<!--    async defer></script>-->
-<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
-<!--    <script>-->
-<!--      var map;-->
-<!--      var marker;-->
-<!--      var latitudeTextBox = $("#LatitudeTextBox").val();-->
-<!--      var longitudeTextBox = $("#LongitudeTextBox").val();-->
+    <hr>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxEBXXZRjgKUczgQfr7LMGxWFZtgxZ5LQ&callback=initMap"
+    async defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      var map;
+      var marker;
+      var latitudeTextBox = $("#LatitudeTextBox").val();
+      var longitudeTextBox = $("#LongitudeTextBox").val();
 
-<!--      function initMap() {-->
+      function initMap() {
 
-<!--         var myLatLng = new google.maps.LatLng(25.7570684, -80.3658604);-->
+         var myLatLng = new google.maps.LatLng(25.7570684, -80.3658604);
 
-<!--        var mapOptions = {-->
-<!--            zoom: 10,-->
-<!--            center: myLatLng,-->
-<!--            scrollwheel: false,-->
-<!--            mapTypeId: google.maps.MapTypeId.ROADMAP,-->
-<!--            mapTypeControl: true,-->
-<!--            mapTypeControlOptions: { style: google.maps.MapTypeControlStyle.DEFAULT },-->
-<!--            navigationControl: true,-->
-<!--            navigationControlOptions: { style: google.maps.NavigationControlStyle.DEFAULT }-->
-<!--        };-->
+        var mapOptions = {
+            zoom: 10,
+            center: myLatLng,
+            scrollwheel: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: true,
+            mapTypeControlOptions: { style: google.maps.MapTypeControlStyle.DEFAULT },
+            navigationControl: true,
+            navigationControlOptions: { style: google.maps.NavigationControlStyle.DEFAULT }
+        };
 
 
-<!--        var map = new google.maps.Map(document.getElementById('map'), mapOptions);-->
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-<!--        var marker = new google.maps.Marker({-->
-<!--            draggable: true,-->
-<!--            map: map,-->
-<!--            position: myLatLng,-->
-<!--            title:"Set Address!"-->
-<!--        });-->
+        var marker = new google.maps.Marker({
+            draggable: true,
+            map: map,
+            position: myLatLng,
+            title:"Set Address!"
+        });
 
-<!--        google.maps.event.addListener(marker, 'dragend', function() {-->
-<!--            var curLatLng = marker.getPosition();-->
-<!--            latitudeTextBox=curLatLng.lat();-->
-<!--            longitudeTextBox=curLatLng.lng();-->
-<!--        });-->
+        google.maps.event.addListener(marker, 'dragend', function() {
+            var curLatLng = marker.getPosition();
+            latitudeTextBox=curLatLng.lat();
+            longitudeTextBox=curLatLng.lng();
+            makeAjaxCalls();
+        });
 
-<!--        google.maps.event.trigger(marker, "click");-->
+        google.maps.event.trigger(marker, "click");
 
-<!--        }-->
+        }
+        function makeAjaxCalls(){
+             $.ajax({
+                'url':'http://127.0.0.1:8000/api/maps?x='+latitudeTextBox+'&y='+longitudeTextBox,
+                'type':'GET',
+                'success': function (data) {
+                    var obj = JSON.parse(data);
+                    $("#id_street").val(obj.address1 +" " +  obj.address2);
+                    $("#id_city").val(obj.city);
+                    $("#id_state").val(obj.state);
+                    $("#id_zipcode").val(obj.zipcode);
+                },
+                'error': function(request, error){
+                    console.log("Request: "+JSON.stringify(request));
+                }
+            });
+        }
+    //google.maps.event.addDomListener(window, 'load', initMap);
 
-<!--    //google.maps.event.addDomListener(window, 'load', initMap);-->
-
-<!--    </script>-->
+    </script>
 
 
 

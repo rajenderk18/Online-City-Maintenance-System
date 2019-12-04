@@ -27,4 +27,5 @@ urlpatterns = [
     path('user/<str:username>/followers', FollowersListView.as_view(), name='user-followers'),
     # path('media/issuePics/<int:pk>/$', UserPostListView.as_view(), name='post-pics'),
     path('status/<str:username>', UserPostListView.as_view(), name='status-posts'),
+    path('api/maps', views.my_view),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

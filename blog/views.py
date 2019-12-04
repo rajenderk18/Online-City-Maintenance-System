@@ -7,7 +7,9 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Count
 from .forms import NewCommentForm
+from django.http import HttpResponse, HttpResponseNotFound
 import googlemaps
+import json
 
 def is_users(post_user, logged_user):
     return post_user == logged_user
@@ -246,3 +248,44 @@ class FollowersListView(ListView):
 #         for obj in qs:
 #             follows.append(obj.follow_user)
 #         return Post.objects.filter(author__in=follows).order_by('-date_posted')
+
+
+def my_view(request):
+        x = request.GET.get('x','26.07081081728195')
+        y = request.GET.get('y','-80.29719584921872')
+
+        gmaps = googlemaps.Client(key='AIzaSyCxEBXXZRjgKUczgQfr7LMGxWFZtgxZ5LQ')
+        # Geocoding an address
+        geocode_result = gmaps.geocode('1261 SW 104th Passage, Miami, Florida 33174')
+        print(geocode_result[0]['geometry']['location']['lat'])
+        print(geocode_result[0]['geometry']['location']['lng'])
+
+        # Look up an address with reverse geocoding
+        reverse_geocode_result = gmaps.reverse_geocode((x, y))
+        print(reverse_geocode_result[0]['address_components'][0]['long_name'] + ' ' +
+              reverse_geocode_result[0]['address_components'][1]['long_name'] + ' ' +
+              reverse_geocode_result[0]['address_components'][3]['long_name'])  # Street
+        print(reverse_geocode_result[0]['address_components'][2]['long_name'])  # city
+        print(reverse_geocode_result[0]['address_components'][4]['long_name'])  # State
+        # print(reverse_geocode_result[0]['address_components'][5]['long_name']) #Country
+        print(reverse_geocode_result[0]['address_components'][6]['long_name'])  # zipcode
+        totalAddress = reverse_geocode_result[0]['address_components'][0]['long_name'] + ' ' +\
+                        reverse_geocode_result[0]['address_components'][1]['long_name'] + ' ' +\
+        reverse_geocode_result[0]['address_components'][3]['long_name']+ ' '+\
+                        reverse_geocode_result[0]['address_components'][2]['long_name'] +' '+\
+        reverse_geocode_result[0]['address_components'][4]['long_name']+' '+\
+        reverse_geocode_result[0]['address_components'][6]['long_name']
+
+        data = {}
+        data['address1'] = reverse_geocode_result[0]['address_components'][0]['long_name']
+        data['address2'] = reverse_geocode_result[0]['address_components'][1]['long_name']
+        data['street'] = reverse_geocode_result[0]['address_components'][3]['long_name']
+        data['city'] = reverse_geocode_result[0]['address_components'][2]['long_name']
+        data['state'] = reverse_geocode_result[0]['address_components'][4]['long_name']
+        data['country'] = reverse_geocode_result[0]['address_components'][5]['long_name']
+        data['zipcode'] = reverse_geocode_result[0]['address_components'][6]['long_name']
+
+
+
+
+        return HttpResponse(json.dumps(data))
