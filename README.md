@@ -73,34 +73,68 @@ Although, I used the following software (with their corresponding versions) to r
 - Pillow==6.2.1( pip install Pillow==6.2.1)
 - psycopg2==2.8.4 (pip install psycopg2==2.8.4)
 
+For front-end design, I used:
 
+- HTML, CSS, JavaScript, and Bootstrap
+
+For storing database, I used:
+
+- Postgresql
 
 ### Clone
 
 - Clone this repo to your local machine using
 -  `https://github.com/rajenderk18/Online-City-Maintenance-System.git`
 
-### Running the Panther Youtube Downloader
+### Running the AVIYAT – (A Platform for Grievance Reporting for City Maintenance)
 
 You can run the program by following the below commands:
 
 ```
 $ git clone https://github.com/rajenderk18/Online-City-Maintenance-System.git
-$ cd Panther_Youtube_Downloader
-$ chmod +x Panther_Youtube_Downloader.py
-$ ./Panther_Youtube_Downloader.py
-
+$ cd Online-City-Maintenance-System
+$ python manage.py makemigrations
 ```
 
-or run the Panther_Youtube_Downloader.py using python in terminal or command prompt using below command:
+makemigrations, which is responsible for creating new migrations based on the changes you have made to your models.
 
 ```
-python Panther_Youtube_Downloader.py
+$ python manage.py migrate
 ```
 
-------
+migrate, which is responsible for applying and un-applying migrations.
 
+If you want to see the SQL statements for migration, You can run below commands:
 
+```
+$ python manage.py sqlmigrate
+```
+
+To list all the project migrations and their status, run the below command:
+
+```
+$ python manage.py showmigrations
+```
+
+To run the server, and see your website, you can use below commands:
+
+```
+$ python manage.py runserver
+```
+
+After running the above command, You can see your website at this address in your browser: 127.0.0.1:8000
+
+If you want to run your website on different port, you just need to provide the port number with 'runserver' command like the example given below:
+
+```
+$ python manage.py runserver 8080
+```
+
+You can create superuser (or admin) by following commands:
+
+```
+$ python manage.py createsuperuser
+```
 
 ------
 
@@ -122,27 +156,13 @@ python Panther_Youtube_Downloader.py
 
 
 
-## How it works ? (Instructions)
+## Class Diagram
 
-1. Select the downloader type based on what you want to download i.e. audio or video ("***Audio Download***", "***Video Download***").
+![1575484594393](C:\Users\rkumar\AppData\Roaming\Typora\typora-user-images\1575484594393.png)
 
-2. Select a format of your choice ("***.mp3***", "***.flv***", etc.).
 
-3. Enter the URL or link of the video that you wish to convert/download.
 
-4. Enter the name you wish to give for the video.
 
-5. Click the "***Start Download***" button to begin the conversion/download process.
-
-6. You will get the status of download in the Status bar.
-
-7. Upon successful completion of the conversion/download, your video will be saved in the "downloads" folder under the path of Panther Video Downloader.
-
-8. You can play, stop or delete the audio file directly in the Panther Youtube Downloader by clicking the corresponding button. 
-
-9. To play video files, go to the download folder under the path of Panther Youtube Downloader and play with any supported media player like "VLC Media Player", "Media Player Classic", "5KPlayer", "GOM Media Player", "KMPlayer", "PotPlayer", "5KPlayer", etc.
-
-   
 
 ## Usage 
 
@@ -218,7 +238,7 @@ Reach out to me at one of the following places!
 
 ------
 
-## Donations
+## Credits
 
 - If you think this little youtube downloader is useful to you, then it's a good reason to do a donation.
 

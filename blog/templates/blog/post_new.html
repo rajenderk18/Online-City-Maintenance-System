@@ -152,7 +152,7 @@
         }
         function makeAjaxCalls(){
              $.ajax({
-                'url':'http://127.0.0.1:8000/api/maps?x='+latitudeTextBox+'&y='+longitudeTextBox,
+                'url':'http://citymaintenance.pythonanywhere.com//api/maps?x='+latitudeTextBox+'&y='+longitudeTextBox,
                 'type':'GET',
                 'success': function (data) {
                     var obj = JSON.parse(data);
